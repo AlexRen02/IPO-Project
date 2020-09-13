@@ -17,5 +17,5 @@ import copy
 
 #get ipo data
 base_url = "https://www.nasdaq.com/market-activity/ipos"
-#html parse table
-#using ipo ticker search for day data
+#using ipo ticker from db get more data
+#
