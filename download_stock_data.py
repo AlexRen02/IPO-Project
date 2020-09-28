@@ -2,7 +2,7 @@
 This module is to download and save IPO data from web sites.
 '''
 
-import pandas as pd
+import pandas
 import requests
 from bs4 import BeautifulSoup
 from flask import Flask
