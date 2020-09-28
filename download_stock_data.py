@@ -6,16 +6,23 @@ import pandas as pd
 import requests
 from bs4 import BeautifulSoup
 from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import *
 from string import *
 
+import datetime
 import numbers
 import urllib
 import json
 import copy
 
 #get ipo data
-base_url = "https://www.nasdaq.com/market-activity/ipos"
-#using ipo ticker from db get more data
-#
+
+#getting url for each month of ipo data
+base_url = "https://api.nasdaq.com/api/ipo/calendar?dates="
+base_year = 1999
+for i in range(base_year, datetime.datetime.now().year + 1):
+    for j in range (1, 13):
+        if j < 10:
+            url = base_url + str(i) + "-0" + str(j)
+        else:
+            url = base_url + str(i) + "-" + str(j)
+        req = urllib.request.Request(url)
